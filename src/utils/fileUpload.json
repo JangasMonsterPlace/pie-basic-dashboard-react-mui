@@ -1,0 +1,13 @@
+{
+    "fileNameInput": "GoogleData",
+    "dataOrigin": "google",
+    "dateFormat": "dd/mm/yyyy",
+    "dataMap": {
+        "date": "Rating hase been done",
+        "rating": "Bewertungen",
+        "country": "Land",
+        "text": "Review Text Data",
+        "city": "Stadt",
+        "user": "Nutzer"
+    }
+}

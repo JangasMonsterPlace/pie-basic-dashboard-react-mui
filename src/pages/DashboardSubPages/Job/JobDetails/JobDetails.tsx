@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as d3 from 'd3';
 import { styled, useTheme } from '@mui/material';
 import { JobActionCreators, State } from '@state';
-import { bindActionCreators } from 'redux';
 
 export default function JobDetails() {
   const { id } = useParams();
@@ -61,10 +60,6 @@ const BarPlot = React.memo(() => {
   const refPlot = useRef(null);
   const [data, setData] = useState([3, 2, 3, 10, 5, 2, 7, 1, 9, 8]);
   const dispatch = useDispatch();
-  const { setCurrentSmallBarChartValue } = bindActionCreators(
-    JobActionCreators,
-    dispatch
-  );
 
   const BarHolder = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -78,7 +73,7 @@ const BarPlot = React.memo(() => {
   }));
   const setValue = (value: number) => {
     //@ts-ignore
-    dispatch(setCurrentSmallBarChartValue(value));
+    dispatch(JobActionCreators.setCurrentSmallBarChartValue(value));
   };
 
   useEffect(() => {

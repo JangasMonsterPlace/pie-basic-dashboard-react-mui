@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
-import { useTheme } from '@emotion/react';
+import { useTheme } from '@mui/material';
 
 export default function BarChart({ data, chartId, options }) {
   const barChartRef = useRef(null);

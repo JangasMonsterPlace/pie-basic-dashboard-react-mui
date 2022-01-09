@@ -1,8 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import { useTheme } from '@emotion/react';
 
-export default function PieChart({ data, chartId, options }) {
+interface IProps {
+  data: any;
+  options: any;
+  chartId: string;
+}
+
+
+const PieChartSummaryChosenJobData: FC<IProps> = ({ data, chartId, options }) => {
+  console.log(data);
+  
   const pieChart = useRef(null);
   const { chartHeight, chartWidth, chartMargin } = options;
   const theme = useTheme();
@@ -73,3 +82,5 @@ export default function PieChart({ data, chartId, options }) {
   });
   return <div ref={pieChart}></div>;
 }
+
+export default PieChartSummaryChosenJobData;

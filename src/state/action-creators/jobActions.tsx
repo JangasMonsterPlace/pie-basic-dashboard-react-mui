@@ -24,11 +24,29 @@ export const setCurrentSmallBarChartValue =
 
 export const loadJobCreateData =
   (id: string) => async (dispatch: Dispatch<JobActions>) => {
-    console.log("loadJobCreateData");
-    await apiService.getCreationData({ userId: id }).then((data: Array<IJobCreationData>) => {
-      return dispatch({
-        type: JobActionTypes.LOAD_JOB_CREATE_DATA,
-        payload: data,
+    console.log('loadJobCreateData');
+    await apiService
+      .getCreationData({ userId: id })
+      .then((data: Array<IJobCreationData>) => {
+        return dispatch({
+          type: JobActionTypes.LOAD_JOB_CREATE_DATA,
+          payload: data,
+        });
       });
+  };
+
+export const choseJobData =
+  (data: IJobCreationData) => (dispatch: Dispatch<JobActions>) => {
+    console.log('choseJobData', data);
+    return dispatch({
+      type: JobActionTypes.CHOSE_JOB_DATA,
+      payload: {...data},
+    });
+  };
+  export const removeFromChosenJobData =
+  (data: IJobCreationData) => (dispatch: Dispatch<JobActions>) => {
+    return dispatch({
+      type: JobActionTypes.REMOVE_FROM_CHOSEN_JOB_DATA,
+      payload: data,
     });
   };

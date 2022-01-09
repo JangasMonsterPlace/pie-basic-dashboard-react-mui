@@ -1,5 +1,6 @@
 import { IJobCreationData } from '@state/reducer-types';
 import faker from 'faker';
+import { v4 as uuidv4 } from 'uuid';
 
 const origins = [
   'Disney',
@@ -13,7 +14,7 @@ export const fakeCreationDate = (entries: number): IJobCreationData[] => {
   const data: IJobCreationData[] = [];
   for (let i = 0; i < entries; i++) {
     data.push({
-      id: faker.datatype.number({ min: 1, max: 100000 }),
+      id: uuidv4(),
       first_review: faker.date.past(),
       last_review: faker.date.recent(),
       averageLenth: faker.datatype.number({ min: 1, max: 300 }),

@@ -51,6 +51,7 @@ const initialState: IJobState = {
   activeJobCreateStep: 0,
   smallBarChartCurrentValue: 0,
   jobCreationData: [],
+  chosenJobCreationData: [],
 };
 
 export function jobReducer(
@@ -63,6 +64,18 @@ export function jobReducer(
       return {
         ...state,
         ...action.payload,
+      };
+    case JobActionTypes.CHOSE_JOB_DATA:
+      return {
+        ...state,
+        chosenJobCreationData: [... new Set(state.chosenJobCreationData).add(action.payload)],
+      }
+    case JobActionTypes.REMOVE_FROM_CHOSEN_JOB_DATA:
+      return {
+        ...state,
+        chosenJobCreationData: state.chosenJobCreationData.filter((data) => {
+          return data.id !== action.payload.id;
+        }),
       };
     case JobActionTypes.CHANGE_CURRENT_SMALL_BAR_CHART_VALUE:
       return {
